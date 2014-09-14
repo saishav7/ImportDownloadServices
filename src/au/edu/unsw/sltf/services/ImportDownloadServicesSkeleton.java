@@ -104,8 +104,6 @@ import au.edu.unsw.sltf.services.helper.MarketData;
         	throws ImportDownloadFaultException{
             	 DownloadFile dfreq = downloadFile2.getDownloadFile();
                  
-                 String returnStr = "EventSet Id: " + dfreq.getEventSetId();
-
                  String url = resourcesFolder + dfreq.getEventSetId() + ".csv";
                  File f = new File(url);
 
