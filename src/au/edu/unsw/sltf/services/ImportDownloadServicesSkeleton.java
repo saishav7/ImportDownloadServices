@@ -46,15 +46,15 @@ import au.edu.unsw.sltf.services.helper.MarketData;
              Random rand = new Random();
              int  fileName = rand.nextInt(1000000) + 1;
              
-             File outputFile = new File(resourcesFolder + fileName);
+             File outputFile = new File(resourcesFolder + fileName + ".csv");
              while (outputFile.exists()) {
             	 fileName = rand.nextInt(1000000) + 1;
-                 outputFile = new File(resourcesFolder + fileName);
+                 outputFile = new File(resourcesFolder + fileName + ".csv");
              }
              
              MarketData md;
 			
-				if (!data.getSec().matches("^[A-Za-z]+")) {
+				if (!data.getSec().matches("[^0-9]+")) {
 					throw idFaultException("Incorrect SEC code", "InvalidSECCode");
 				} else {
 					
