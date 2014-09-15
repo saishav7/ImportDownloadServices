@@ -104,13 +104,14 @@ import au.edu.unsw.sltf.services.helper.MarketData;
         	throws ImportDownloadFaultException{
             	 DownloadFile dfreq = downloadFile2.getDownloadFile();
                  
-                 String url = System.getProperty("catalina.base") + "/webapps/SoapServices/cs9322ass1/" + dfreq.getEventSetId() + ".csv";
-                 File f = new File(url);
+                 String uri = System.getProperty("catalina.base") + "/webapps/SoapServices/cs9322ass1/" + dfreq.getEventSetId() + ".csv";
+                 File f = new File(uri);
 
                  if (f.exists()) {
                 	 DownloadFileResponseDocument dfrespdoc = 
                 			 DownloadFileResponseDocument.Factory.newInstance();
                      DownloadFileResponse dfresp = dfrespdoc.addNewDownloadFileResponse();
+                     String url = "http://hvee350.srvr:8080/cs9322ass1/" + dfreq.getEventSetId() + ".csv";
                      dfresp.setDataURL(url);
                      return dfrespdoc;
                  } else {
