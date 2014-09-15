@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLConnection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -61,8 +62,11 @@ public class MarketData {
 
 	private void URLtoMD(String dataSourceURL) throws IOException, IncorrectTimeException, ParseException {
     	URL dataURL = new URL(dataSourceURL);
+    	URLConnection urlCon = dataURL.openConnection();
+    	urlCon.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
+    	urlCon.connect();
         
-        InputStream is = dataURL.openStream();
+        InputStream is = urlCon.getInputStream();
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String theLine;
