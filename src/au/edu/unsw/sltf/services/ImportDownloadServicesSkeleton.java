@@ -111,7 +111,7 @@ import au.edu.unsw.sltf.services.helper.MarketData;
                 	 DownloadFileResponseDocument dfrespdoc = 
                 			 DownloadFileResponseDocument.Factory.newInstance();
                      DownloadFileResponse dfresp = dfrespdoc.addNewDownloadFileResponse();
-                     String url = "http://hvee350.srvr:8080/cs9322ass1/" + dfreq.getEventSetId() + ".csv";
+                     String url = "http://hvee350.srvr:8080/SoapServices/cs9322ass1/" + dfreq.getEventSetId() + ".csv";
                      dfresp.setDataURL(url);
                      return dfrespdoc;
                  } else {
