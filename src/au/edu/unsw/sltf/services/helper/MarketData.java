@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.ParseException;
@@ -62,7 +63,7 @@ public class MarketData {
 
 	private void URLtoMD(String dataSourceURL) throws IOException, IncorrectTimeException, ParseException {
     	URL dataURL = new URL(dataSourceURL);
-    	URLConnection urlCon = dataURL.openConnection();
+    	HttpURLConnection urlCon = (HttpURLConnection) dataURL.openConnection();
     	urlCon.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
     	urlCon.connect();
         
